@@ -39,12 +39,21 @@ export default function Navbar() {
             )}
             {user ? (
               <>
-                <span className="text-sm text-gray-500">{user.nombre}</span>
+                <span className="text-sm text-gray-600">{user.nombre}</span>
+                <span
+                  className={`text-xs px-2 py-1 rounded-full ${
+                    user.role === 'ADMIN'
+                      ? 'bg-gray-900 text-white'
+                      : 'bg-gray-100 text-gray-600'
+                  }`}
+                >
+                  {user.role}
+                </span>
                 <button
                   onClick={handleLogout}
-                  className="text-gray-600 hover:text-gray-900 transition-colors"
+                  className="px-3 py-1 border border-gray-300 rounded-md text-gray-600 hover:bg-gray-50 transition-colors"
                 >
-                  Salir
+                  Cerrar sesión
                 </button>
               </>
             ) : (
